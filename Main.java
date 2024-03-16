@@ -1,8 +1,10 @@
-import Recursion.Printntimes;
-import Sorting.SortingMain;
+import Recursion.ReverseArray;
+import Recursion.SumOfN;
 
 public class Main {
     public static void main(String[] args) {
-        Printntimes.print();
+        ReverseArray r = new ReverseArray();
+
+        r.call();
     }
 }
