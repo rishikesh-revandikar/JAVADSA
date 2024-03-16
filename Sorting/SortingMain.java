@@ -28,6 +28,7 @@ public class SortingMain {
     }
 
     public void callSortingFunction(){
-        SelectionSort.selectionSort(this.arr,this.size);
+//        SelectionSort.selectionSort(this.arr,this.size);
+        BubbleSort.bubbleSort(this.arr,this.size);
     }
 }
