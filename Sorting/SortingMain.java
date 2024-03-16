@@ -27,8 +27,19 @@ public class SortingMain {
 
     }
 
-    public void callSortingFunction(){
-//        SelectionSort.selectionSort(this.arr,this.size);
-        BubbleSort.bubbleSort(this.arr,this.size);
+    public void callSortingFunction(int i){
+
+        switch (i){
+            case 1:
+                SelectionSort.selectionSort(this.arr,this.size);
+                break;
+            case 2:
+                BubbleSort.bubbleSort(this.arr,this.size);
+                break;
+            default:
+                System.out.println("No such sorting");
+                break;
+        }
+
     }
 }
