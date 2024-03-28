@@ -1,12 +1,11 @@
 package LinkedList;
 
 public class LLmain {
+    int[] arr = {1,2,3,4};
 
-    public LLmain(){
-        int []arr = {1,2,3,4};
-
-        Node n = new Node(arr[3]);
-        System.out.println(n.next);
-
+    public void callLLFunctions(){
+        Node head = LLBasics.convertArrayToLL(arr);
+        LLBasics.printLL(head);
     }
+
 }
