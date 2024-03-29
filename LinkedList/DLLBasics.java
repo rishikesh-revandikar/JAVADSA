@@ -110,5 +110,91 @@ public class DLLBasics {
         return head;
     }
 
+    // Insertion in DLL
 
+    public static DLLNode insertAtHead(DLLNode head,int val){
+        DLLNode newNode = new DLLNode(val,head,null);
+        head.prev = newNode;
+        return newNode;
+    }
+
+    public static DLLNode insertAfterHead(DLLNode head, int val){
+        if(head == null) return null;
+        DLLNode newNode = new DLLNode(val);
+        newNode.next = head.next;
+        newNode.prev = head;
+        head.next = newNode;
+        return head;
+    }
+
+    public static DLLNode insertAtTail(DLLNode head, int val){
+        if(head == null) return null;
+        DLLNode newNode = new DLLNode(val);
+        if(head.next == null){
+            newNode.prev = head;
+            head.next = newNode;
+            return head;
+        }
+        DLLNode temp = head;
+        while (temp.next != null){
+            temp = temp.next;
+        }
+        newNode.prev = temp;
+        temp.next = newNode;
+        return head;
+    }
+
+    public static DLLNode insertBeforeTail(DLLNode head, int val){
+        if(head == null) return null;
+        DLLNode newNode = new DLLNode(val);
+        if(head.next == null){
+            newNode.next = head;
+            newNode.prev = null;
+            head.prev = newNode;
+            return newNode;
+        }
+        DLLNode temp = head;
+        while (temp.next != null){
+            temp = temp.next;
+        }
+        newNode.next = temp;
+        newNode.prev = temp.prev;
+        temp.prev.next = newNode;
+        temp.prev = newNode;
+        return head;
+    }
+
+    public static DLLNode insertAtKthPosition(DLLNode head, int val, int k) throws NullPointerException{
+
+        DLLNode temp = head;
+        int counter = 0;
+        while (temp != null){
+            counter++;
+            if(counter == k) break;
+            temp = temp.next;
+        }
+
+        DLLNode back = temp.prev;
+        DLLNode front = temp.next;
+
+        if(back == null && front == null) return null;
+        else if(back  == null) return insertAtHead(head,val);
+        else if(front == null) return insertAtTail(head, val);
+        else{
+            DLLNode newNode = new DLLNode(val,temp,back);
+            back.next = newNode;
+            temp.prev = newNode;
+        }
+
+        return head;
+
+    }
+
+    public static void insertBeforeNode(DLLNode node, int val){
+        DLLNode back = node.prev;
+        DLLNode newNode = new DLLNode(val,node,back);
+        back.next = newNode;
+        node.prev = newNode;
+
+    }
 }
